@@ -60,9 +60,9 @@ Created a professional dashboard layout including:
    git clone <your-repository-link>
 
 ## 📜 License
-**This project is licensed under the MIT License - see the LICENSE file for details.
+- This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
-- **Data Source: IBM HR Analytics via Kaggle.
+- Data Source: IBM HR Analytics via Kaggle.
 
-- **Inspiration: Real-world HR case studies focused on workforce optimization and retention.
+- Inspiration: Real-world HR case studies focused on workforce optimization and retention.
