@@ -1,78 +1,60 @@
-Employee Attrition Analysis: Power BI Dashboard Project
-📊 Project Overview
-This project presents a comprehensive Human Resources (HR) Analytics Dashboard developed to understand and mitigate employee turnover. Using a dataset of 1,470 employees, the dashboard identifies critical attrition drivers—such as age, salary slabs, and job roles—enabling HR departments to transition from reactive reporting to data-driven retention strategies.
+# Employee Attrition Analysis Dashboard (Power BI)
 
-🛠️ Tools & Technologies
-Platform: Microsoft Power BI Desktop.
+## 📊 Project Overview
+This project is an end-to-end data visualization solution created in **Power BI** to analyze employee turnover. By examining a dataset of 1,470 employees, the dashboard identifies the core reasons behind attrition, such as low salary satisfaction, specific age demographics, and high-pressure job roles. These insights allow HR teams to make data-driven decisions to improve employee retention.
 
-Data Transformation: Power Query (M Language).
+---
 
-Analytics Engine: DAX (Data Analysis Expressions) for calculated measures and KPIs.
+## 🛠️ Tools & Technologies
+- **Power BI Desktop**: Used for the entire project (ETL, Modeling, and Visualization).
+- **Power Query**: Used for data cleaning and creating conditional columns.
+- **DAX (Data Analysis Expressions)**: Used to calculate complex KPIs like Attrition Rate and Average Age.
+- **Data Source**: IBM HR Analytics (CSV format).
 
-Data Source: IBM HR Analytics Employee Attrition & Performance (CSV/Excel).
+---
 
-📁 Project Steps
-1. Data Connection & Extraction
-Source: Kaggle - IBM HR Analytics Dataset.
+## 📁 Project Steps (Completed in Power BI)
 
-Process: Integrated the raw CSV into Power BI Desktop via the "Get Data" connector.
+### 1. Data Connection & Extraction
+- **Dataset Source**: [IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
+- **Method**: Imported the raw CSV file directly into Power BI Desktop.
 
-2. Data Transformation (Power Query)
-Cleaning: Removed redundant columns like EmployeeCount, Over18, and StandardHours which contained single unique values.
+### 2. Data Transformation (Power Query)
+- **Data Cleaning**: Handled missing values and removed irrelevant columns (`EmployeeCount`, `StandardHours`, etc.).
+- **Salary Slabs**: Created a conditional column to group monthly income into categories (e.g., Upto 5k, 5k-10k, 10k-15k, 15k+).
+- **Age Grouping**: Created age bins (18-25, 26-35, 36-45, 46-55, 55+) to identify which age groups are most likely to leave.
 
-Feature Engineering:
+### 3. Data Modeling & DAX Measures
+Developed several measures to provide deep insights:
+- **Total Employees**: `COUNT(HR_Data[EmployeeID])`
+- **Attrition Count**: `CALCULATE(COUNT(HR_Data[Attrition]), HR_Data[Attrition] = "Yes")`
+- **Attrition Rate**: `[Attrition Count] / [Total Employees]`
+- **Average Tenure**: Calculated average years spent at the company.
 
-Created Conditional Columns for "Salary Slabs" (e.g., Upto 5k, 5k-10k, etc.).
+### 4. Interactive Visualization
+Created a professional dashboard layout including:
+- **KPI Cards**: Displaying Total Employees, Attrition Count, and Attrition Rate.
+- **Donut Charts**: Showing attrition breakdown by **Education Field** and **Gender**.
+- **Bar Charts**: Comparing attrition across different **Job Roles** and **Salary Slabs**.
+- **Slicers**: Added filters for **Department** to allow for dynamic, departmental-level analysis.
 
-Grouped ages into Age Bins (e.g., 18-25, 26-35, 36-45, 46-55, 55+) for demographic grouping.
+---
 
-Data Typing: Ensured correct formatting for numerical values and categorical attributes.
+## 📈 Results & Insights
+- **Salary Impact**: There is a clear trend showing that employees in the **lowest salary slab (Upto 5k)** have the highest attrition rate.
+- **Job Role Risks**: **Laboratory Technicians** and **Sales Executives** are the roles with the highest turnover volume.
+- **Critical Age Group**: Employees aged **26-35** represent the highest attrition count, indicating a need for better growth opportunities in early-to-mid careers.
+- **Education Factor**: Employees with a background in **Life Sciences** and **Medical** fields contribute to the majority of the turnover.
 
-3. Data Modeling & DAX Measures
-KPI Development: Created key measures using DAX, including:
+---
 
-Total Employees = COUNT(EmployeeID).
+## 📋 Requirements
+- **Power BI Desktop** (Free download from the Microsoft Store).
+- The dataset file: `WA_Fn-UseC_-HR-Employee-Attrition.csv`.
 
-Attrition Count = CALCULATE(COUNT(Attrition), Attrition="Yes").
+---
 
-Attrition Rate = [Attrition Count] / [Total Employees].
-
-Average Salary and Average Age.
-
-4. Interactive Dashboard Design
-Visual Elements:
-
-KPI Cards: High-level overview of total headcount and attrition rates.
-
-Donut/Pie Charts: Attrition distribution by Education Field and Gender.
-
-Bar Charts: Attrition count broken down by Job Role and Salary Slab.
-
-Treemaps/Column Charts: Trends across different Age Groups.
-
-Interactivity: Implemented Slicers for Department and Gender to allow dynamic filtering.
-
-📈 Results & Insights
-Role Vulnerability: The Laboratory Technician role often exhibits the highest attrition (62 cases in this dataset).
-
-Income Correlation: Employees in the lowest salary slab (Upto 5k) are significantly more likely to leave the organization.
-
-Education Impact: Attrition is notably higher among those with Life Sciences and Medical backgrounds.
-
-Age Factor: The 26-35 age group typically represents the largest segment of voluntary departures.
-
-📋 Requirements
-Software: Microsoft Power BI Desktop (Version: Latest).
-
-System: Windows 10/11 with 4GB+ RAM (8GB recommended for smoother rendering).
-
-License: A free Fabric/Power BI license is sufficient for local exploration.
-
-🧭 Getting Started
-Download Dataset: Obtain the WA_Fn-UseC_-HR-Employee-Attrition.csv file from Kaggle.
-
-Open Power BI: Launch the .pbix project file.
-
-Data Source Setting: If prompted, update the file path to point to your local CSV location.
-
-Explore: Use the slicers on the left/top to filter the insights by department or demographic.
+## 🧭 Getting Started
+1. **Clone the Repo**:
+   ```bash
+   git clone <your-repository-link>
